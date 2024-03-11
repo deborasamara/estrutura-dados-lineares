@@ -6,15 +6,13 @@ public class testePilha {
 	public static void main(String[] args) {	
 
 		PilhaArray pp = new PilhaArray(1);
-
-		1 2 3 5 7 6758
-			pp[i]
+		
 		// criar condição de parada ex -1
 		int res = 1;
 		int i = 1;
 
 		// variável temporária que guarda o valor anterior
-		int var_temporaria; 
+		int var_temporaria = null; 
 		
 		while(res != -1){ // ficar dando push e verificando 
 			System.out.println("Digite a energia da casa "+i);
@@ -23,8 +21,17 @@ public class testePilha {
 			int energia = scanner.nextInt();
 			res = energia;
 			pp.push(energia);
-			// usar a variável temporária 
-			
+			// comparar top de agora com var_temporaria
+			if(var_temporaria != null){ // não é o primeiro numero 
+				// comparar com o anterior 
+				
+			}else{ // primeiro número 
+				// primeiro número do array da primeira linha de força.
+			}
+
+			// nova atribuição ao var_temporaria
+			var_temporaria = pp.top();
+
 			//System.out.println(pp.top()); - teste para ver se está inserindo
 		}
 		// Criar as linhas de força
