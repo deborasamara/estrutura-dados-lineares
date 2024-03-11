@@ -19,6 +19,7 @@ public class testePilha {
 			//System.out.println(pp.top()); - teste para ver se está inserindo
 		}
 		// Criar as linhas de força
+		// ideia: usar array para dar input nos elementos das energias e criar pilhas das energias de força e printar seus valores(usando as funcionalidades pop, top, push, etc, instanciando as novas pilhas 
 		
 
 	}
