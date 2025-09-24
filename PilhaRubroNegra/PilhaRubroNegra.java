@@ -37,7 +37,7 @@ public class PilhaRubroNegra{
             array_auxd[i]= a[i];
         }
         // copia pilha preta
-        for(int i = capacidade-1; i<(sizeP());i--){
+        for(int i = capacidade-1; i<(tPreto);i--){
             array_auxd[i]= a[i];
         }
          a = array_auxd;
