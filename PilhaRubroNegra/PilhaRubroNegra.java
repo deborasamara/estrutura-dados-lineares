@@ -22,7 +22,7 @@ public class PilhaRubroNegra{
             array_aux[i]= a[i];
         }
         // preenche pilha preta
-        for(int i = capacidade-1; i<(sizeP());i--){
+        for(int i = capacidade-1; i<(tPreto);i--){
             array_aux[i]= a[i];
         }
         a = array_aux;
