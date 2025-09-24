@@ -13,19 +13,25 @@ public class PilhaRubroNegra{
     }
 
     // Métodos
-
     public void aumentarPilha(){
-        // aumenta pilha
-        
+        // Declara array auxiliar 
+        Object[] array_aux = new Object[capacidade*2];
 
-        // copia pilha vermelha
-
-
-        // copia pilha preta
-
+        // preenche pilha vermelha
+        for(int i = 0; i<(sizeV());i++){
+            array_aux[i]= a[i];
+        }
+        // preenche pilha preta
+        for(int i = capacidade-1; i<(sizeP());i--){
+            array_aux[i]= a[i];
+        }
+        a = array_aux;
     }
 
     public void diminuirPilha(){
+        // Declara array auxiliar 
+        Object[] array_aux = new Object[capacidade*2];
+
         // reduz pilha
 
         // copia pilha vermelha
@@ -42,7 +48,7 @@ public class PilhaRubroNegra{
     }
 
     public void verificaUmTerco(){
-        if(sizeV() + sizeP() <= capacidade/3){
+        if((sizeV() + sizeP()) <= capacidade/3){
             diminuirPilha();
         }
     }
