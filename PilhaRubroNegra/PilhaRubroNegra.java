@@ -30,15 +30,17 @@ public class PilhaRubroNegra{
 
     public void diminuirPilha(){
         // Declara array auxiliar 
-        Object[] array_aux = new Object[capacidade*2];
-
-        // reduz pilha
+        Object[] array_auxd = new Object[capacidade/2];
 
         // copia pilha vermelha
-
-
+         for(int i = 0; i<(sizeV());i++){
+            array_auxd[i]= a[i];
+        }
         // copia pilha preta
-
+        for(int i = capacidade-1; i<(sizeP());i--){
+            array_auxd[i]= a[i];
+        }
+         a = array_auxd;
     }
 
     public void verificaCheio(){
