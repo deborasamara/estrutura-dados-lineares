@@ -60,7 +60,7 @@ public class PilhaRubroNegra{
     }
 
     public int sizeP(){
-        return tPreto+1;
+        return capacidade-tPreto;
     }
 
     public boolean isEmptyV(){
