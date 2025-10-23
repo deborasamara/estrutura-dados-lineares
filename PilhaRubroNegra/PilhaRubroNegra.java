@@ -22,10 +22,16 @@ public class PilhaRubroNegra{
             array_aux[i]= a[i];
         }
         // preenche pilha preta
-        for(int i = capacidade-1; i<(tPreto);i--){
-            array_aux[i]= a[i];
+
+        // novo Tpreto
+        int novotPreto = capacidade*2 - sizeP();
+
+        for(int i = novotPreto; i<(capacidade*2); i++){
+            array_aux[i]=a[i-capacidade];
         }
         a = array_aux;
+        this.capacidade = capacidade*2;
+        tPreto = novotPreto;
     }
 
     public void diminuirPilha(){
@@ -36,15 +42,20 @@ public class PilhaRubroNegra{
          for(int i = 0; i<(sizeV());i++){
             array_auxd[i]= a[i];
         }
+
+        // Novo Tp = capacidade/2 - TamanhoPilhaPreta
+         int novotPreto = capacidade/2 - sizeP();
         // copia pilha preta
-        for(int i = capacidade-1; i<(tPreto);i--){
-            array_auxd[i]= a[i];
+        for(int i = novotPreto; i<(capacidade/2); i++){
+            array_auxd[i] = a[i+capacidade];
         }
          a = array_auxd;
+         this.capacidade = capacidade/2;
+         tPreto = novotPreto;
     }
 
     public void verificaCheio(){
-        if(tVermelho == tPreto){
+        if(tVermelho == (tPreto-1)){
             aumentarPilha();
         }
     }
