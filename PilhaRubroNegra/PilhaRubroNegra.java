@@ -13,6 +13,12 @@ public class PilhaRubroNegra{
     }
 
     // Métodos
+    
+    //Verifica capacidade
+    public int capacidade(){
+        return capacidade;
+    }
+
     public void aumentarPilha(){
         // Declara array auxiliar 
         Object[] array_aux = new Object[capacidade*2];
@@ -47,7 +53,7 @@ public class PilhaRubroNegra{
          int novotPreto = capacidade/2 - sizeP();
         // copia pilha preta
         for(int i = novotPreto; i<(capacidade/2); i++){
-            array_auxd[i] = a[i+capacidade];
+            array_auxd[i] = a[i+(capacidade/2)];
         }
          a = array_auxd;
          this.capacidade = capacidade/2;
@@ -98,13 +104,13 @@ public class PilhaRubroNegra{
     }
 
     public void pushV(Object o){
-        verificaCheio();
         a[++tVermelho]=o;
+        verificaCheio();
     }
 
     public void pushP(Object o){
-        verificaCheio();
         a[--tPreto]=o;
+        verificaCheio();
     }
 
     public Object popV() throws PilhaVaziaExcecao{
