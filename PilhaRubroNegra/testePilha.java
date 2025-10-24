@@ -23,6 +23,7 @@ public class testePilha {
 			  System.out.print(f);
 			  System.out.println(" - "+pp.popV());
 		}
+
 		System.out.println("Retirando Pilha Preta");
 		for(int f=0;f<5;f++){
 			  System.out.print(f);
@@ -35,13 +36,17 @@ public class testePilha {
 		  pp.pushV(f);
 		}
 		System.out.println("Inserindo Pilha Preta");
-		for(int f=0;f<10;f++){
+		for(int f=0;f<11;f++){
 		  System.out.println(f);		  
 		  pp.pushP(f);
 		}
+
 		System.out.println("Tamanho Atual da Pilha Vermelha: "+pp.sizeV());
 		System.out.println("Tamanho Atual da Pilha Preta: "+pp.sizeP());
 		System.out.println("Tamanho atual da pilha: "+(pp.sizeV()+pp.sizeP())+"\n");
 		System.out.println("Capacidade atual da pilha: "+(pp.capacidade())+"\n");
+
+		System.out.println("Top Vermelho: "+pp.topV());
+		System.out.println("Top Preto: "+pp.topP());
 	}
 }

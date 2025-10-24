@@ -61,12 +61,16 @@ public class PilhaRubroNegra{
     }
 
     public void verificaCheio(){
-        if(tVermelho == (tPreto-1)){
+        if((sizeV() + sizeP()) == capacidade){
             aumentarPilha();
         }
     }
 
     public void verificaUmTerco(){
+        // System.out.println("\n");
+        // System.out.println("Verificando um terço. Capacidade:" + capacidade +"Tamanho Vermelha:" + sizeV() + " Tamanho Preta:" + sizeP() + " Resultado:" + ((sizeV() + sizeP()) <= capacidade/3));
+
+
         if((sizeV() + sizeP()) <= capacidade/3){
             diminuirPilha();
         }
@@ -117,8 +121,8 @@ public class PilhaRubroNegra{
         if(isEmptyV()){
             throw new PilhaVaziaExcecao("A pilha vermelha tá vazia!!");
         }
-        verificaUmTerco();
         Object r=a[tVermelho--];
+        verificaUmTerco();
         return r;
     }
 
@@ -126,8 +130,8 @@ public class PilhaRubroNegra{
         if(isEmptyP()){
             throw new PilhaVaziaExcecao("A pilha preta tá vazia!!");
         }
-        verificaUmTerco();
         Object l=a[tPreto++];
+        verificaUmTerco();
         return l;
     }
 
