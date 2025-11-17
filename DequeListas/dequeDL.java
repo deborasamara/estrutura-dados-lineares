@@ -49,5 +49,4 @@ public class DequeDL {
     int tamanho():
     
     boolean estaVazia():
-
 }
