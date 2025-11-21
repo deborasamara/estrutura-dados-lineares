@@ -1,52 +1,62 @@
 // Implemente um Deque através de uma lista duplamente encadeada e também através de uma lista simplesmente encadeada, Após fazer as implementações do Deque, faça uma comparação das duas implementações utilizando a notação do Big O para os métodos das duas implementações..
+
 public class DequeDL {
-    private static class No{
-    
-    private Object element;
+    private DLNo header, trailer;
 
-    private No proximo, anterior;
+    private Integer size; 
 
-    // Construtor
-    public No(Object o, No prox, No ant){
-        element = o;
-        proximo = prox; 
-        anterior = ant;
+    public DequeDL(){
+        header = new DLNo();
+        trailer = new DLNo();
+        size = 0;
+        header.setProximo(trailer);
+        trailer.setAnterior(header);
     }
 
-    // Getters e Setters 
-    public No getProximo() {
-        return proximo;
-    }
-    public void setProximo(No n) {
-        proximo = n;
-    }
-    public No getAnterior() {
-        return anterior;
-    } 
+    // insere elemento o no começo do Deque
+    public void inserirInicio(Object o){
 
-    public void setAnterior(No n) {
-        anterior = n;
-    }
-    // Hearder e Trailer
-    private No header, trailer;
-
-    private int size = 0;
-    
     }
 
-    inserirInicio(object):
+    // remove e retorna o elemento do começo do deque. Ocorre um erro se o deque estiver vazio. 
+    public Object removerInicio(){
 
-    object removerInicio():
+    }
 
-    inserirFim(object):
+    // insere um novo elemento o no final do deque
+    public void inserirFim(Object o){
 
-    object removerFim():
+    }
 
-    object primeiro():
 
-    object ultimo():
-    
-    int tamanho():
-    
-    boolean estaVazia():
+    // remove e retorna o último elemento do deque. Ocorre um erro se o deque estiver vazio.
+    public Object removerFim(){
+        if(estaVazia()){
+            throw new DequeEmptyException("Deque vazio!!");
+        }
+        DLNo ultimo = trailer.getAnterior();
+        Object o = ultimo.getElement();
+        
+
+    }
+
+    // retorna o primeiro elemento do deque. Ocorre um erro se o deque estiver vazio.
+    public Object primeiro(){
+
+    }
+
+    // retorna o ultimo elemento do deque. Ocorre um erro se o deque estiver vazio.
+    public Object ultimo (){
+
+    }
+
+    // retorna o numero de elementos do deque    
+    public int tamanho(){
+        return 1;
+    }
+     
+    // determina se o deque está vazio 
+    public boolean estaVazia(){
+        return true;
+    }
 }
