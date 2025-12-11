@@ -40,11 +40,11 @@ public class DequeSL {
 
     public void inserirFim(Object o){}
 
-    public Object removerFim(){}
+    // public Object removerFim(){}
 
-    public Object primeiro(){}
+    // public Object primeiro(){}
 
-    public Object ultimo (){}
+    // public Object ultimo (){}
 
     public int tamanho(){
         return size;
@@ -52,6 +52,11 @@ public class DequeSL {
 
     public boolean estaVazia(){
         return (tamanho()==0);
+    }
+
+    public String removerFim() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'removerFim'");
     }
     
 }
