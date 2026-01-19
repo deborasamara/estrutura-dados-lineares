@@ -1,22 +1,22 @@
 public class SLNo {
-    private Object element;
+    private String element;
     private SLNo next;
     // Construtores
     public SLNo(){
     }
-    public SLNo(Object o, SLNo n){
+    public SLNo(String o, SLNo n){
         element = o;
         next = n;
     }
     // Métodos de acesso
-    public Object getElement(){
+    public String getElement(){
         return element;
     }
     public SLNo getNext(){
         return next;
     }
     // Modificadores
-    public void setElement(Object newElement){
+    public void setElement(String newElement){
         element = newElement;
     }
     public void setNext(SLNo newNext){

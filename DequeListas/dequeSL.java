@@ -2,22 +2,26 @@
 public class DequeSL {
     private Integer size; 
     private SLNo head;
+    private SLNo tail;
 
      public DequeSL(){
-        size = 0;
         head = null;
+        tail = null;
+        size = 0;
     }
 
     // insere elemento o no começo do Deque
-    public void inserirInicio(Object o){
-         // o head sempre vai ser o primeiro nó
-        SLNo novo_no = new SLNo(o, head);
-        SLNo aux = head;
-        head = novo_no;
-        if(estaVazia()){
-            novo_no.setNext(null);
+    public void inserirInicio(String o){
+        // o head sempre vai ser o primeiro nó
+        if(head == null){// primeira inserção
+            SLNo novo_no = new SLNo(o, null);
+            head = novo_no; 
+            tail = novo_no;
+        }else{
+            SLNo novo_no_adicional = new SLNo(o, head);
+            // ver a necessidade de atualizar o next do novo nó 
+            head = novo_no_adicional;
         }
-        novo_no.setNext(aux);
         size++;
     }
 
@@ -38,11 +42,28 @@ public class DequeSL {
         return primeiro.getElement();
     }
 
-    public void inserirFim(Object o){}
+     // insere elemento o no fim do Deque
+    public void inserirFim(String o){
+        // o tail sempre vai ser o último nó
+        if(tail == null){// primeira inserção
+            SLNo novo_no = new SLNo(o, null);
+            head = novo_no;
+            tail = novo_no;
+        }else{
+            SLNo novo_no_adicional = new SLNo(o, tail);
+            tail = novo_no_adicional;
+        }
+        size++;
+    }
 
     // public Object removerFim(){}
 
-    // public Object primeiro(){}
+    public SLNo primeiro(){
+        if(estaVazia()){
+            throw new DequeEmptyException("Deque vazio");
+        }
+        return head;
+    }
 
     // public Object ultimo (){}
 
@@ -53,10 +74,4 @@ public class DequeSL {
     public boolean estaVazia(){
         return (tamanho()==0);
     }
-
-    public String removerFim() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removerFim'");
-    }
-    
 }

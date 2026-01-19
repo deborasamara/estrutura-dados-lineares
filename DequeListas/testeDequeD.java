@@ -19,7 +19,7 @@ public class testeDequeD {
 
         // remover do final
         System.out.println("O elemento retirado do final e"+ dq.removerFim());
-        
+
         // Tamanho
         System.out.println("Tamanho do Deque: "+dq.tamanho());
     }
