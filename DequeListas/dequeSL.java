@@ -56,16 +56,37 @@ public class DequeSL {
         size++;
     }
 
-    // public Object removerFim(){}
+    public Object removerFim(){
+        if(estaVazia()){
+            throw new DequeEmptyException("Deque vazio");
+        }
+        SLNo ultimo = tail;
 
-    public SLNo primeiro(){
+        if(size == 1){
+            tail = null;
+            tail.setNext(null);
+        }
+        else{
+            tail = tail.getNext();
+        }
+        size--;
+        return ultimo.getElement();
+    }
+
+    public Object primeiro(){
         if(estaVazia()){
             throw new DequeEmptyException("Deque vazio");
         }
         return head;
     }
 
-    // public Object ultimo (){}
+    public Object ultimo (){
+        if(estaVazia()){
+            throw new DequeEmptyException("Deque vazio");
+        }
+        return tail;
+    }
+
 
     public int tamanho(){
         return size;

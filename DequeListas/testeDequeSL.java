@@ -6,13 +6,13 @@ public class testeDequeSL {
 
         // for(int i = 0; i <5; i++){
            dq.inserirInicio("numero 0");
-           System.out.println("primeiro elemento " + dq.primeiro());
+           System.out.println("primeiro elemento " + dq.primeiro().getElement());
 
            dq.inserirInicio("numero 1");
-           System.out.println("Segundo elemento " + dq.primeiro());
+           System.out.println("Segundo elemento " + dq.primeiro().getElement());
 
            dq.inserirInicio("numero 2");
-           System.out.println("Terceiro elemento " + dq.primeiro());
+           System.out.println("Terceiro elemento " + dq.primeiro().getElement());
 
            System.out.println("Tamanho do deque: " + dq.tamanho());
         // }
