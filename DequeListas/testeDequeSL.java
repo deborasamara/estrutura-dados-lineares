@@ -16,9 +16,9 @@ public class testeDequeSL {
 
            System.out.println("Tamanho do deque: " + dq.tamanho());
         // }
-
+        
+        SLNo n = dq.primeiro();
         for(int i = 0; i <(dq.tamanho()); i++){
-          SLNo n = dq.primeiro();
           System.out.println(n.getElement());
           n = n.getNext();
         }

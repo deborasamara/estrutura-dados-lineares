@@ -73,14 +73,14 @@ public class DequeSL {
         return ultimo.getElement();
     }
 
-    public Object primeiro(){
+    public SLNo primeiro(){
         if(estaVazia()){
             throw new DequeEmptyException("Deque vazio");
         }
         return head;
     }
 
-    public Object ultimo (){
+    public SLNo ultimo (){
         if(estaVazia()){
             throw new DequeEmptyException("Deque vazio");
         }
