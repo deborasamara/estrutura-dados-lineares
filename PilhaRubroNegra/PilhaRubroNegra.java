@@ -69,8 +69,6 @@ public class PilhaRubroNegra{
     public void verificaUmTerco(){
         // System.out.println("\n");
         // System.out.println("Verificando um terço. Capacidade:" + capacidade +"Tamanho Vermelha:" + sizeV() + " Tamanho Preta:" + sizeP() + " Resultado:" + ((sizeV() + sizeP()) <= capacidade/3));
-
-
         if((sizeV() + sizeP()) <= capacidade/3){
             diminuirPilha();
         }
