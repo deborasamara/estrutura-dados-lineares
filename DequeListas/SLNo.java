@@ -1,5 +1,5 @@
 public class SLNo {
-    private String element;
+    private Object element;
     private SLNo next;
     // Construtores
     public SLNo(){
@@ -9,14 +9,14 @@ public class SLNo {
         next = n;
     }
     // Métodos de acesso
-    public String getElement(){
+    public Object getElement(){
         return element;
     }
     public SLNo getNext(){
         return next;
     }
     // Modificadores
-    public void setElement(String newElement){
+    public void setElement(Object newElement){
         element = newElement;
     }
     public void setNext(SLNo newNext){
