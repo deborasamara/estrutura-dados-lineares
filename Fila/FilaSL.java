@@ -11,9 +11,9 @@ public class FilaSL{
         size = 0;
     }
     // métodos 
-    // insere elemento no começo da fila
+    // insere elemento no começo da fila (que é o final)
     public void enqueue(Object o){
-        SLNo elemento = New SLNo();
+        SLNo elemento = new SLNo();
         elemento.setElement(o);
         elemento.setNext(null);
         
@@ -35,14 +35,17 @@ public class FilaSL{
         head = head.getNext();
         size--;
         if(size == 0){
-            tail == null;
+            tail = null;
         }
         return o;
     }
 
     // retorna o elemento do início sem removê-lo
-    public Object first throws QueueEmptyException(){
-
+    public Object first() throws QueueEmptyException{
+        if(size == 0){
+            throw new QueueEmptyException("A fila tá vazia!!");
+        }
+        return head.getElement();
     }
 
     // retorna o número de elementos armazenados
