@@ -13,5 +13,11 @@
 // Obs 2: Após ocorrer a reversão todos os métodos devem continuar a funcionar normalmente.
 
 public class FilaReverseSL {
+    boolean isReversed;
+    int size, capacidade;
+
+    public FilaReverseSL(){
+
+    }
     
 }
