@@ -13,33 +13,43 @@ public class FilaSL{
         size = 0;
     }
     // métodos 
-    // insere elemento no começo da fila (que é o final)
+    // insere elemento no final da fila 
     public void enqueue(Object o){
-        SLNo elemento = new SLNo();
-        elemento.setElement(o);
-        elemento.setNext(null);
+        SLNo elemento = new SLNo(); // Instancia um novo nó
+        elemento.setElement(o); // Adiciona o elemento do nó
+        elemento.setNext(null); // Faz com que o seu próximo next seja nulo, já que é o final da fila né
         
+        //OBS: Quando a fila está vazia, o primeiro nó que entra é, ao mesmo tempo, o início (head) e o fim da fila
+
+        // Encadear != Apontar
+        // Encadear
+        // tail.setNext(elemento); Conectar nós
+
+
+        // Apontar
+        // head = elemento; Tem haver com apontar pra um espaço da memória
+
         if(size == 0){
-            head = elemento;
+            head = elemento; // Se o tamanho da fila for 0, o head aponta pro elemento 
         }else{
-            tail.setNext(elemento);
+            tail.setNext(elemento); // O seu próximo (next) agora é este novo elemento que acabou de chegar
         }
-        tail = elemento;
+        tail = elemento; // Independente da situação, o tail aponta pro último elemento colocado
         size++;
     }
     // remove e retorna o elemento do início da fila
     public Object dequeue() throws QueueEmptyException{
-        Object o;
+        Object o; // declara variável do tipo objeto chamada "o"
         if(size == 0){
             throw new QueueEmptyException("A fila tá vazia!!");
         }
-        o = head.getElement();
-        head = head.getNext();
-        size--;
+        o = head.getElement(); // Guarda valor do começo da fila na variável "o"
+        head = head.getNext(); // Encandeia o head para o próximo elemento
+        size--; // Diminui o tamanho da fila em 1
         if(size == 0){
-            tail = null;
+            tail = null; // Se fila ficar vazia, tail fica nulo
         }
-        return o;
+        return o; // Retorne o objeto
     }
 
     // retorna o elemento do início sem removê-lo
