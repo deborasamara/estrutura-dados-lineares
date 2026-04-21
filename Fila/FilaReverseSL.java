@@ -14,9 +14,15 @@
 
 public class FilaReverseSL {
     boolean isReversed;
-    int size, capacidade;
+    int capacidade;
+    int f, r; // f = índice para a posição de Q que guarda o primeiro elemento da fila, r = índice para a próxima posição de Q onde o próximo elemento será inserido
+    // Se f = r. A fila está vazia
+    Object[] Q;
 
-    public FilaReverseSL(){
+    // Construtor
+    public FilaReverseSL(int capacidade){
+        this.capacidade = capacidade; 
+
 
     }
     
