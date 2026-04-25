@@ -14,16 +14,85 @@
 
 public class FilaReverseSL {
     boolean isReversed;
-    int capacidade;
-    int f, r; // f = índice para a posição de Q que guarda o primeiro elemento da fila, r = índice para a próxima posição de Q onde o próximo elemento será inserido
+    int capacidade, N;
+    int f, r; // f = índice para a posição de Q que guarda o primeiro elemento da fila, r =
+              // índice para a próxima posição de Q onde o próximo elemento será inserido
     // Se f = r. A fila está vazia
     Object[] Q;
 
     // Construtor
-    public FilaReverseSL(int capacidade){
-        this.capacidade = capacidade; 
-
-
+    public FilaReverseSL(int capacidade) {
+        this.capacidade = capacidade;
+        Q = new Object[capacidade];
+        f = 0;
+        r = 0;
+        isReversed = false;
+        N = 0;
     }
-    
+
+    //
+
+    public void reverse() {
+        isReversed = !isReversed;
+    }
+
+    public int size() {
+        return (N - f + r) % N;
+    }
+
+    public boolean isEmpty() {
+        return (f == r);
+    }
+
+    public Object first() throws QueueEmptyException {
+        if (isReversed == false) {
+            return Q[f];
+        } else {
+            return Q[r];
+        }
+    }
+
+    public void enqueue(Object o) {
+        if (size() == N - 1) {
+            throw new RuntimeException("A fila tá cheia!!");
+        }
+        if (isReversed == false) {
+            Q[r] = o;
+            r = (r + 1) % N;
+        }
+        verificaCheio();
+    }
+
+    public void dequeue() throws QueueEmptyException {
+        if (isEmpty()) {
+            throw new RuntimeException("A fila tá vazia!!");
+        }
+        if (isReversed == false) {
+            Q[f] = null;
+            r = (r + 1) % N;
+        }
+        verificaUmTerco();
+    }
+
+    public void aumentarFila() {
+        Object[] novaFila = new Object[capacidade * 2];
+        // IMplementar lógica
+    }
+
+    public void reduzirFila() {
+        Object[] novaFila = new Object[capacidade / 2];
+        // Implementar lógica
+    }
+
+    public void verificaCheio() {
+        if (size() == N - 1) {
+            aumentarFila();
+        }
+    }
+
+    public void verificaUmTerco() {
+        if (size() == N / 3) {
+            reduzirFila();
+        }
+    }
 }
