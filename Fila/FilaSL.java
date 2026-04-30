@@ -3,7 +3,7 @@
 //Implemente os TADs Fila utilizando a estrutura de dados concreta lista simplesmente encadeada.
 public class FilaSL{
     // variáveis
-    private SLNo head, tail;
+    private SLNo head, tail; // Variável de referência para o início (head) e o fim (tail) da fila
     private int size;
 
     // construtores
