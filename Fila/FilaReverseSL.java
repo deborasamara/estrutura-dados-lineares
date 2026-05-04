@@ -14,64 +14,74 @@
 
 public class FilaReverseSL {
     boolean isReversed;
-    int capacidade, N;
-    int f, r; // f = índice para a posição de Q que guarda o primeiro elemento da fila, r =
+    int capacidade, size;
+    int i, f; // i = índice para a posição de Q que guarda o primeiro elemento da fila, r =
               // índice para a próxima posição de Q onde o próximo elemento será inserido
     // Se f = r. A fila está vazia
     Object[] Q;
 
     // Construtor
     public FilaReverseSL(int capacidade) {
-        this.capacidade = capacidade;
         Q = new Object[capacidade];
-        f = 0;
-        r = 0;
+        this.i = 0;
+        this.f = 0;
         isReversed = false;
-        N = 0;
+        this.capacidade = capacidade;
+        this.size = 0;
     }
-
-    //
 
     public void reverse() {
         isReversed = !isReversed;
     }
 
     public int size() {
-        return (N - f + r) % N;
+        return size;
     }
 
     public boolean isEmpty() {
-        return (f == r);
+        return (i == f);
     }
 
     public Object first() throws QueueEmptyException {
-        if (isReversed == false) {
-            return Q[f];
-        } else {
-            return Q[r];
-        }
-    }
-
-    public void enqueue(Object o) {
-        if (size() == N - 1) {
-            throw new RuntimeException("A fila tá cheia!!");
-        }
-        if (isReversed == false) {
-            Q[r] = o;
-            r = (r + 1) % N;
-        }
-        verificaCheio();
-    }
-
-    public void dequeue() throws QueueEmptyException {
         if (isEmpty()) {
             throw new RuntimeException("A fila tá vazia!!");
         }
-        if (isReversed == false) {
-            Q[f] = null;
-            r = (r + 1) % N;
+        return isReversed ? Q[i] : Q[(f - 1 + capacidade) % capacidade];
+
+    }
+
+    public void enqueue(Object o) {
+        if (size() == capacidade - 1) {
+            throw new RuntimeException("A fila tá cheia!!");
         }
+        if (isReversed == false) {
+            Q[f] = o;
+            f = (f + 1) % capacidade;
+        } else {
+            i = (i - 1 + capacidade) % capacidade;
+            Q[i] = o;
+        }
+        size++;
+        verificaCheio();
+    }
+
+    public Object dequeue() {
+        if (isEmpty()) {
+            throw new RuntimeException("A fila tá vazia!!");
+        }
+        Object o;
+        if (isReversed == false) {
+            o = Q[i];
+            Q[i] = null;
+            i = (i + 1) % capacidade;
+        } else {
+            f = (f - 1 + capacidade) % capacidade;
+            o = Q[f];
+            Q[f] = null;
+        }
+        size--;
         verificaUmTerco();
+        return o;
     }
 
     public void aumentarFila() {
@@ -85,13 +95,13 @@ public class FilaReverseSL {
     }
 
     public void verificaCheio() {
-        if (size() == N - 1) {
+        if (size() == capacidade - 1) {
             aumentarFila();
         }
     }
 
     public void verificaUmTerco() {
-        if (size() == N / 3) {
+        if (size() == capacidade / 3) {
             reduzirFila();
         }
     }
