@@ -18,6 +18,9 @@ public class VetorDL{
     }
     public Object atRank(int r){
         DLNo atual = header;
+        if(r<0 || r>size-1){
+            throw new RuntimeException("Rank inválido");
+        }
         for(int i = 0; i<=r; i++){
             atual = atual.getProximo();
         }
@@ -25,6 +28,9 @@ public class VetorDL{
     }
     // Métodos de modificação 
     public Object replaceAtRank(int r, Object o){
+        if(r<0 || r>size-1){
+            throw new RuntimeException("Rank inválido");
+        }
         DLNo atual = header;
         for(int i = 0; i<=r; i++){
             atual = atual.getProximo();
@@ -34,6 +40,9 @@ public class VetorDL{
         return temp;
     } 
     public Object removeAtRank(int r){
+        if(r<0 || r>size-1){
+            throw new RuntimeException("Rank inválido");
+        }
         DLNo atual = header;
          for(int i = 0; i<=r; i++){
             atual = atual.getProximo();
@@ -46,6 +55,9 @@ public class VetorDL{
         return temp;
     }
     public void insertAtRank(int r, Object o){
+        if(r<0 || r>size){
+            throw new RuntimeException("Rank inválido");
+        }
         DLNo atual = header; 
         for(int i = 0; i<=r; i++){
             atual = atual.getProximo();
