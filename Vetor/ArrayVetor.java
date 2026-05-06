@@ -31,11 +31,6 @@ public class ArrayVetor{
         size--;
         return temp;
     }
-    public Object replaceAtRank(int r, Object o){
-        Object temp = a[r];
-        a[r] = o;
-        return temp;
-    }
     public void insertAtRank(int r, Object o){
         if ( size == capacidade){
             capacidade = capacidade * 2;
