@@ -46,7 +46,7 @@ public class FilaReverseSL {
         if (isEmpty()) {
             throw new RuntimeException("A fila tá vazia!!");
         }
-        return isReversed ? Q[i] : Q[(f - 1 + capacidade) % capacidade];
+        return isReversed ? Q[(f - 1 + capacidade) % capacidade] : Q[i];
 
     }
 
