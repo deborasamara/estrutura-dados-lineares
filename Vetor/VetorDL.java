@@ -5,8 +5,9 @@ public class VetorDL{
     // construtor 
     public VetorDL(){
         header = new DLNo();
-        tail = new DLNo(null, header, null); 
+        tail = new DLNo(); 
         header.setProximo(tail);
+        tail.setAnterior(header);
         size = 0;
     }
     // Métodos de acesso  
