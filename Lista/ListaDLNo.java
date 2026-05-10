@@ -21,27 +21,50 @@ public class ListaDLNo {
     }
 
     // Métodos de acesso
-    first()
-    last()
-    before(p)
-    after(p)
+    first(){
+
+    }
+    last(){
+        
+    }
+    before(p){
+        
+    }
+    after(p){
+        
+    }
 
     // Métodos de atualização
-    replaceElement(n, o)
-    swapElements(n, q)
+    replaceElement(n, o){
 
-    insertBefore(n, o),
-    insertAfter(n, o),
+    }
+    swapElements(n, q){
 
-    insertFirst(o),
-    insertLast(o)
-    remove(n)
+    }
+
+    insertBefore(n, o){
+
+    }
+    insertAfter(n, o){
+
+    }
+
+    insertFirst(o){
+
+    }
+    insertLast(o){
+
+    }
+    remove(n){
+        
+    }
 
     // Métodos de Fila
     public boolean isFirst( n){
         return n 
 
     }
+
     public boolean isLast(n){
 
     }
