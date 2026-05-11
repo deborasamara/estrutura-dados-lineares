@@ -38,7 +38,7 @@ public class ListaArray {
     }
 
     // retorna a posição do elemento da lista que precede o que se encontra na
-    // posição p.
+    // posição anterior a p.
     public Object before(int p) {
         if (p <= 0 || p >= size) {
             throw new RuntimeException("Posição inválida");
@@ -93,12 +93,19 @@ public class ListaArray {
     // novo elemento. retorna posição do
     // do objeto recem inserido o.
     public Object insertBefore(Object o, int p) {
+        // verificar se precisa deslocar elementos
         if(p-1<0 || p>=size){
             throw new RuntimeException("Posição inválida");
         }
-        array_data[p-1] = o;
+        if(size() + 1  > capacidade){
+            dobrar_tamanho();
+        }
+        for(int i= size; i>p-1; i--){
+            array_data[i] = array_data[i-1];
+        }
+        array_data[p]=o;
         size++;
-        return array_data[p-1];
+        return array_data[p];
     }
 
     // Insere um novo objeto o DEPOIS da posição p da lista. Retorna a posição do
@@ -109,6 +116,12 @@ public class ListaArray {
         if(p<0 || p+1>=size){
             throw new RuntimeException("Posição inválida");
         }
+        if(size() + 1  > capacidade){
+            dobrar_tamanho();
+        }
+        for(int i= size; i>p; i--){
+            array_data[i]=array_data[i-1];
+        }
         array_data[p+1] = o;
         Object temp = array_data[p+1];
         size++;
@@ -118,8 +131,12 @@ public class ListaArray {
     // Insere um novo objeto o na primeira posição da lista. Retorna a posição do
     // objeto recem inserido o.
     public Object insertFirst(Object o) {
-        if(size() == array_data.length){
+        if(size() == capacidade || size() + 1 > capacidade){
             dobrar_tamanho();
+        }
+        // deslocar elementos para a direita
+        for(int i = size; i>0; i--){
+            array_data[i] = array_data[i-1];
         }
         array_data[0] = o;
         size++;
@@ -129,15 +146,28 @@ public class ListaArray {
     // Insere um novo objeto o na última posição da lista. Retorna a posição do
     // objeto recem inserido o.
     public Object insertLast(Object o) {
-        if(size() == array_data.length){
+        if(size() == capacidade || size() + 1 > capacidade){
             dobrar_tamanho();
         }
-        array_data[size+1] = o;
+        array_data[size] = o;
         size++;
-        return array_data[size];
+        return o;
     }
     // Remove o elemento da posição p da lista. Retorna o elemento que se encontrava na posição p
     public Object remove(int p) {
+        if(p<0 || p>=size){
+            throw new RuntimeException("Posição inválida");
+        }
+        Object temp = array_data[p]; 
+        if(isLast(p)){
+            array_data[p]=null;
+        }else{
+            for(int i=p; i>size-1; i++){
+                array_data[i]=array_data[i+1];
+            }
+        }
+        size--;
+        return temp;
     }
 
     // Métodos de Fila

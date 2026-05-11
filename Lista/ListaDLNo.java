@@ -123,6 +123,9 @@ public class ListaDLNo {
     }
     // Remove o elemento da posição p da lista. Retorna o elemento que se encontrava na posição p
     public Object remove(DLNo p) {
+        if (isEmpty()) {
+            throw new RuntimeException("Lista vazia");
+        }
         p.getAnterior().setProximo(p.getProximo());
         p.getProximo().setAnterior(p.getAnterior());
         size--;
