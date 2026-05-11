@@ -144,6 +144,5 @@ public class ListaDLNo {
             throw new RuntimeException("Lista vazia");
         }
         return tail.getAnterior() == n;
-
     }
 }
