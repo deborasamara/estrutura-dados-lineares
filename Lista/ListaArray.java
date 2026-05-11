@@ -105,6 +105,7 @@ public class ListaArray {
     // novo elemento. retorna posição do
     // objeto recem inserido o.
     public Object insertAfter(Object o, int p) {
+        // verificar se precisa deslocar elementos 
         if(p<0 || p+1>=size){
             throw new RuntimeException("Posição inválida");
         }
