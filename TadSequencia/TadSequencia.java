@@ -211,7 +211,11 @@ public class TadSequencia {
     // converte um índice em uma posição
     public DLNo atRank(int r) {
         DLNo posicao = new DLNo();
-        for(DLNo n )
+        DLNo atual = header;
+        Int indice = 0;
+        for(i = 0; i< ){
+            indice++;
+        }
 
     }
     
