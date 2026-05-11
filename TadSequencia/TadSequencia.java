@@ -214,14 +214,13 @@ public class TadSequencia {
         DLNo atual = header;
         Int indice = 0;
         for(i = 0; i< ){
-            indice++;
+            
         }
 
     }
     
     // convertendo uma posição em um índice
     public int rankOf(DLNo n){
-
+        indice++;
     }
-
 }
