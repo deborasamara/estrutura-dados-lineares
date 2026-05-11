@@ -62,7 +62,7 @@ public class ListaDLNo {
 
     // Troca os elementos das posições n e o.
     public void swapElements(DLNo n, DLNo o) {
-        Object aux = n.getElement()
+        Object aux = n.getElement();
         Object aux2 = o.getElement();
         n.setElement(aux2);
         o.setElement(aux);
@@ -78,7 +78,7 @@ public class ListaDLNo {
         novoNo.setAnterior(p.getAnterior());
         p.getAnterior().setProximo(novoNo);
         p.setAnterior(novoNo);
-
+        size++;
         return novoNo;
     }
 
@@ -92,6 +92,7 @@ public class ListaDLNo {
         novoNo.setProximo(p.getProximo());
         p.getProximo().setAnterior(novoNo);
         p.setProximo(novoNo);
+        size++;
         return novoNo;
     }
 
@@ -104,6 +105,7 @@ public class ListaDLNo {
         novoNo.setAnterior(header);
         header.getProximo().setAnterior(novoNo);
         header.setProximo(novoNo);
+        size++;
         return novoNo;
     }
 
@@ -116,12 +118,14 @@ public class ListaDLNo {
         novoNo.setProximo(tail);
         tail.getAnterior().setProximo(novoNo);
         tail.setAnterior(novoNo);
+        size++;
         return novoNo;
     }
     // Remove o elemento da posição p da lista. Retorna o elemento que se encontrava na posição p
     public Object remove(DLNo p) {
         p.getAnterior().setProximo(p.getProximo());
         p.getProximo().setAnterior(p.getAnterior());
+        size--;
         return p.getElement();
     }
 
