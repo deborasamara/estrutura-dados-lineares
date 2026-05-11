@@ -68,19 +68,43 @@ public class ListaArray {
 
     // Troca os elementos das posições n e o.
     public void swapElements(int n, int o) {
+        if(n>=size || o>=size || n<0 || o<0){
+            throw new RuntimeException("Posição inválida");
+        }
+        Object aux = array_data[n];
+        Object aux2 = array_data[o];
+        array_data[n] = aux2;
+        array_data[o] = aux;
     }
 
     // Insere um novo objeto o ANTES da posição p da lista. Retorna a posição do
     // novo elemento. retorna posição do
     // do objeto recem inserido o.
-    public Object insertBefore(Object o, DLNo p) {
+    public Object insertBefore(Object o, int p) {
+        if(p-1<0 || p>=size){
+            throw new RuntimeException("Posição inválida");
+        }
+        array_data[p-1] = o;
+        size++;
+        return array_data[p-1];
     }
 
     // Insere um novo objeto o DEPOIS da posição p da lista. Retorna a posição do
     // novo elemento. retorna posição do
     // objeto recem inserido o.
-    public Object insertAfter(Object o, DLNo p) {
+    public Object insertAfter(Object o, int p) {
+        if(p<0 || p+1>=size){
+            throw new RuntimeException("Posição inválida");
+        }
+        array_data[p+1] = o;
+        Object temp = array_data[p+1];
+        size++;
+        return temp;
     }
+
+    // Duplica o tamanho do array_data, copiando os elementos do array antigo para o novo
+
+
 
     // Insere um novo objeto o na primeira posição da lista. Retorna a posição do
     // objeto recem inserido o.
@@ -90,6 +114,7 @@ public class ListaArray {
     // Insere um novo objeto o na última posição da lista. Retorna a posição do
     // objeto recem inserido o.
     public Object insertLast(Object o) {
+        
         return 
     }
     // Remove o elemento da posição p da lista. Retorna o elemento que se encontrava na posição p
@@ -102,7 +127,7 @@ public class ListaArray {
         if (isEmpty()) {
             throw new RuntimeException("Lista vazia");
         }
-        return 
+        return n == 0;
     }
 
     // verifica se um nó está na última posição da lista
@@ -110,6 +135,6 @@ public class ListaArray {
         if (isEmpty()) {
             throw new RuntimeException("Lista vazia");
         }
-        return 
+        return n == size - 1;
     }
 }
