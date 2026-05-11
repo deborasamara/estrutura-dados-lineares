@@ -209,9 +209,15 @@ public class TadSequencia {
     // Métodos de Ponte -  estabelecem a conexão entre os dois modelos de acesso da estrutura: o acesso por índice (rank), típico de vetores, e o acesso por posição, típico de listas encadeadas
 
     // converte um índice em uma posição
-    atRank(r)
+    public DLNo atRank(int r) {
+        DLNo posicao = new DLNo();
+        for(DLNo n )
+
+    }
     
     // convertendo uma posição em um índice
-    rankOf(n)
+    public int rankOf(DLNo n){
+
+    }
 
 }
