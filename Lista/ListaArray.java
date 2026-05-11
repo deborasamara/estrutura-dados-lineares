@@ -1,11 +1,12 @@
 public class ListaArray {
     private Object [] array_data;
-    private int size;
+    private int size, capacidade;
 
     // Construtor
     public ListaArray() {
         array_data = new Object[10];
         size = 0;
+        capacidade = 10;
     }
 
     // Métodos genéricos
@@ -77,6 +78,17 @@ public class ListaArray {
         array_data[o] = aux;
     }
 
+    // dobrar capacidade do array
+    public void dobrar_tamanho(){
+        Object [] array_aux = new Object[capacidade * 2];
+        for(int i=0; i<capacidade; i++){
+            array_aux[i] = array_data[i];
+        }
+        array_data = array_aux;
+        capacidade = capacidade * 2;
+        System.out.println("Capacidade dobrada de " + (capacidade / 2) + " para: " + capacidade);
+    }
+
     // Insere um novo objeto o ANTES da posição p da lista. Retorna a posição do
     // novo elemento. retorna posição do
     // do objeto recem inserido o.
@@ -102,20 +114,26 @@ public class ListaArray {
         return temp;
     }
 
-    // Duplica o tamanho do array_data, copiando os elementos do array antigo para o novo
-
-
-
     // Insere um novo objeto o na primeira posição da lista. Retorna a posição do
     // objeto recem inserido o.
     public Object insertFirst(Object o) {
+        if(size() == array_data.length){
+            dobrar_tamanho();
+        }
+        array_data[0] = o;
+        size++;
+        return array_data[0];
     }
 
     // Insere um novo objeto o na última posição da lista. Retorna a posição do
     // objeto recem inserido o.
     public Object insertLast(Object o) {
-        
-        return 
+        if(size() == array_data.length){
+            dobrar_tamanho();
+        }
+        array_data[size+1] = o;
+        size++;
+        return array_data[size];
     }
     // Remove o elemento da posição p da lista. Retorna o elemento que se encontrava na posição p
     public Object remove(int p) {
