@@ -1,6 +1,6 @@
 public class VetorDL{
-    DLNo header, tail;
-    int size = 0;
+    private DLNo header, tail;
+    private int size = 0;
 
     // construtor 
     public VetorDL(){
