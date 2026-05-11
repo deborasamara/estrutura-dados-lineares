@@ -20,35 +20,50 @@ public class ListaArray {
     // Métodos de acesso
     // retorna a posição do primeiro elemento da lista. ocorre erro se a lista
     // estiver vazia
-    public DLNo first() {
+    public Object first() {
         if (isEmpty()) {
             throw new RuntimeException("Lista vazia");
         }
+        return array_data[0];
     }
 
     // retorna a posição do último elemento da lista. ocorre erro se a lista estiver
     // vazia
-    public DLNo last() {
+    public Object last() {
         if (isEmpty()) {
             throw new RuntimeException("Lista vazia");
         }
-        return 
+        return array_data[size - 1];
     }
 
     // retorna a posição do elemento da lista que precede o que se encontra na
     // posição p.
-    public DLNo before(int p) {
+    public Object before(int p) {
+        if (p <= 0 || p >= size) {
+            throw new RuntimeException("Posição inválida");
+        }
+        return array_data[p-1];
     }
 
     // retorna a posição do elemento da lista posterior ao que se encontra na
     // posição p.
-    public DLNo after(int p) {
+    public Object after(int p) {
+        if (p <= 0 || p >= size) {
+            throw new RuntimeException("Posição inválida");
+        } 
+        return array_data[p+1];
     }
 
     // Métodos de atualização
     // substitui o elemento da posição n por o. retornando o elemento que se
     // encontrava antes da substituição.
     public Object replaceElement(int n, Object o) {
+        if (n < 0 || n >= size) {
+            throw new RuntimeException("Posição inválida");
+        }
+        Object antigoElemento = array_data[n];
+        array_data[n] = o;
+        return antigoElemento;
     }
 
     // Troca os elementos das posições n e o.
@@ -58,23 +73,23 @@ public class ListaArray {
     // Insere um novo objeto o ANTES da posição p da lista. Retorna a posição do
     // novo elemento. retorna posição do
     // do objeto recem inserido o.
-    public DLNo insertBefore(Object o, DLNo p) {
+    public Object insertBefore(Object o, DLNo p) {
     }
 
     // Insere um novo objeto o DEPOIS da posição p da lista. Retorna a posição do
     // novo elemento. retorna posição do
     // objeto recem inserido o.
-    public DLNo insertAfter(Object o, DLNo p) {
+    public Object insertAfter(Object o, DLNo p) {
     }
 
     // Insere um novo objeto o na primeira posição da lista. Retorna a posição do
     // objeto recem inserido o.
-    public DLNo insertFirst(Object o) {
+    public Object insertFirst(Object o) {
     }
 
     // Insere um novo objeto o na última posição da lista. Retorna a posição do
     // objeto recem inserido o.
-    public DLNo insertLast(Object o) {
+    public Object insertLast(Object o) {
         return 
     }
     // Remove o elemento da posição p da lista. Retorna o elemento que se encontrava na posição p
