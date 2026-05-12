@@ -49,7 +49,7 @@ public class ListaArray {
     // retorna a posição do elemento da lista posterior ao que se encontra na
     // posição p.
     public Object after(int p) {
-        if (p <= 0 || p >= size) {
+        if (p < 0 || p >= size-1) {
             throw new RuntimeException("Posição inválida");
         } 
         return array_data[p+1];
@@ -90,11 +90,11 @@ public class ListaArray {
     }
 
     // Insere um novo objeto o ANTES da posição p da lista. Retorna a posição do
-    // novo elemento. retorna posição do
+    // novo elemento. retorna o rank do
     // do objeto recem inserido o.
-    public Object insertBefore(Object o, int p) {
+    public int insertBefore(Object o, int p) {
         // verificar se precisa deslocar elementos
-        if(p-1<0 || p>=size){
+        if(p<0 || p>=size){
             throw new RuntimeException("Posição inválida");
         }
         if(size() + 1  > capacidade){
@@ -105,15 +105,15 @@ public class ListaArray {
         }
         array_data[p]=o;
         size++;
-        return array_data[p];
+        return p;
     }
 
     // Insere um novo objeto o DEPOIS da posição p da lista. Retorna a posição do
-    // novo elemento. retorna posição do
+    // novo elemento. retorna o rank do
     // objeto recem inserido o.
-    public Object insertAfter(Object o, int p) {
+    public int insertAfter(Object o, int p) {
         // verificar se precisa deslocar elementos 
-        if(p<0 || p+1>=size){
+        if(p<0 || p>=size){
             throw new RuntimeException("Posição inválida");
         }
         if(size() + 1  > capacidade){
@@ -123,9 +123,8 @@ public class ListaArray {
             array_data[i]=array_data[i-1];
         }
         array_data[p+1] = o;
-        Object temp = array_data[p+1];
         size++;
-        return temp;
+        return p+1;
     }
 
     // Insere um novo objeto o na primeira posição da lista. Retorna a posição do
