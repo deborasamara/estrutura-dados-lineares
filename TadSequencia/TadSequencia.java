@@ -210,17 +210,24 @@ public class TadSequencia {
 
     // converte um índice em uma posição
     public DLNo atRank(int r) {
-        DLNo posicao = new DLNo();
-        DLNo atual = header;
-        Int indice = 0;
-        for(i = 0; i< ){
-            
+        DLNo atual = header.getProximo();
+        for(int i = 0; i<r;i++){
+            atual = atual.getProximo();
         }
-
+        return atual;
     }
     
     // convertendo uma posição em um índice
     public int rankOf(DLNo n){
-        indice++;
+        int rank = 0;
+        DLNo atual = header.getProximo();
+        for(int i=0; i<size();i++){
+            if(atual == n){
+                return rank;
+            }
+            atual = atual.getProximo();
+            rank++;
+        }
+        throw new RuntimeException("Posição não encontrada");
     }
 }
