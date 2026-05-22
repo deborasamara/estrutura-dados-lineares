@@ -17,7 +17,7 @@ public class TadSequencia {
         tail.setAnterior(header);
     }
 
-    // Métodos de acesso  
+    // Métodos de acesso
     // retorna a posição do primeiro elemento da lista. ocorre erro se a lista
     // estiver vazia
     public DLNo first() {
@@ -48,41 +48,34 @@ public class TadSequencia {
         return p.getProximo();
     }
 
-     public int size(){
+    public int size() {
         return size;
     }
-    public boolean isEmpty(){
+
+    public boolean isEmpty() {
         return size == 0;
     }
-    public Object atRank(int r){
-        DLNo atual = header;
-        if(r<0 || r>size-1){
-            throw new RuntimeException("Rank inválido");
-        }
-        for(int i = 0; i<=r; i++){
-            atual = atual.getProximo();
-        }
-        return atual.getElement();
-    }
-    // Métodos de modificação 
-    public Object replaceAtRank(int r, Object o){
-        if(r<0 || r>size-1){
+
+    // Métodos de modificação
+    public Object replaceAtRank(int r, Object o) {
+        if (r < 0 || r > size - 1) {
             throw new RuntimeException("Rank inválido");
         }
         DLNo atual = header;
-        for(int i = 0; i<=r; i++){
+        for (int i = 0; i <= r; i++) {
             atual = atual.getProximo();
         }
         Object temp = atual.getElement();
         atual.setElement(o);
         return temp;
-    } 
-    public Object removeAtRank(int r){
-        if(r<0 || r>size-1){
+    }
+
+    public Object removeAtRank(int r) {
+        if (r < 0 || r > size - 1) {
             throw new RuntimeException("Rank inválido");
         }
         DLNo atual = header;
-         for(int i = 0; i<=r; i++){
+        for (int i = 0; i <= r; i++) {
             atual = atual.getProximo();
         }
         Object temp = atual.getElement();
@@ -92,12 +85,13 @@ public class TadSequencia {
         size--;
         return temp;
     }
-    public void insertAtRank(int r, Object o){
-        if(r<0 || r>size){
+
+    public void insertAtRank(int r, Object o) {
+        if (r < 0 || r > size) {
             throw new RuntimeException("Rank inválido");
         }
-        DLNo atual = header; 
-        for(int i = 0; i<=r; i++){
+        DLNo atual = header;
+        for (int i = 0; i <= r; i++) {
             atual = atual.getProximo();
         }
         DLNo novo = new DLNo();
@@ -179,7 +173,9 @@ public class TadSequencia {
         size++;
         return novoNo;
     }
-    // Remove o elemento da posição p da lista. Retorna o elemento que se encontrava na posição p
+
+    // Remove o elemento da posição p da lista. Retorna o elemento que se encontrava
+    // na posição p
     public Object remove(DLNo p) {
         if (isEmpty()) {
             throw new RuntimeException("Lista vazia");
@@ -206,23 +202,25 @@ public class TadSequencia {
         }
         return tail.getAnterior() == n;
     }
-    // Métodos de Ponte -  estabelecem a conexão entre os dois modelos de acesso da estrutura: o acesso por índice (rank), típico de vetores, e o acesso por posição, típico de listas encadeadas
+    // Métodos de Ponte - estabelecem a conexão entre os dois modelos de acesso da
+    // estrutura: o acesso por índice (rank), típico de vetores, e o acesso por
+    // posição, típico de listas encadeadas
 
     // converte um índice em uma posição
     public DLNo atRank(int r) {
         DLNo atual = header.getProximo();
-        for(int i = 0; i<r;i++){
+        for (int i = 0; i < r; i++) {
             atual = atual.getProximo();
         }
         return atual;
     }
-    
+
     // convertendo uma posição em um índice
-    public int rankOf(DLNo n){
+    public int rankOf(DLNo n) {
         int rank = 0;
         DLNo atual = header.getProximo();
-        for(int i=0; i<size();i++){
-            if(atual == n){
+        for (int i = 0; i < size(); i++) {
+            if (atual == n) {
                 return rank;
             }
             atual = atual.getProximo();
