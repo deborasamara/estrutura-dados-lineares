@@ -1,13 +1,13 @@
 public class FilaArrayCircular {
     private Object[] dadosFila;
     private int i = 0, f = 0;
-    private int N, incremento;
+    private int N;
     private int size = 0;
 
-    public FilaArrayCircular(int N, int incremento) {
+    public FilaArrayCircular(int N) {
         this.dadosFila = new Object[N];
         this.N = N;
-        this.incremento = incremento;
+        this.size = 0;
     }
 
     public void enfileirar(Object o) {
@@ -36,7 +36,7 @@ public class FilaArrayCircular {
     }
 
     public int size() {
-        return (N - i + f) % N;
+        return size;
     }
 
     public boolean isEmpty() {
