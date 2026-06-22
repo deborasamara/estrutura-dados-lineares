@@ -93,10 +93,8 @@ public class ArvoreGenerica {
                 int alturaAvulsa = height(filho);
                 maiorAltura = Math.max(maiorAltura, alturaAvulsa);
             }
-
             return 1 + maiorAltura;
         }
-
     }
 
     // retorna um iterador de posições
