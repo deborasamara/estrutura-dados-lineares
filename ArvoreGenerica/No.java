@@ -7,6 +7,7 @@ import java.util.Iterator;
 	{
 		private Object o;
 		private No pai;
+		// pode ter um ou mais filhos
 		private List<No> filhos = new ArrayList<>();
 
 		public No(No pai, Object o)
