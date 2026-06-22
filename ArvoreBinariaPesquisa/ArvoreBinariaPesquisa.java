@@ -44,27 +44,62 @@ public class ArvoreBinariaPesquisa {
         return v.getEsquerdo();
     }
 
-    // Consulta
     public boolean isInternal(No v){
         return (v.getEsquerdo() != null || v.getDireito() != null);
     }
+
     public boolean isExternal(No v){
         return (v.getEsquerdo() == null && v.getDireito() == null);
     }
+
     public boolean isRoot(No v){
         return (v == raiz);
     }
-    // int depth(No)
+    public int depth(No v){
+        if(v == raiz){
+            return 0;
+        }else{
+            return 1 + depth(v.getPai());
+        }
+    }
 
-    // Object replaceElement(No, Object)
+    public Object replaceElement(No v, Object o){
+        Object aux = v.getElemento();
+        v.setElemento(o);
+        return aux;
+    }
 
     // Buscar
+    public Object search(int k, No v){
+        if (isExternal(v)){
+            return v;
+        }
+        if(k < (int) v.getElemento()){
+            return search(k, v.getEsquerdo());
 
+        }else if( k == (int) v.getElemento()){
+            return v;
 
+        }else{ // k > key(v)
+            return search(k, v.getDireito());
+        }
+    }
 
     // Inserir
+    // lembrar de 
+    public void insert(int k, Object o){
+        Object local_do_objeto = search(k, raiz);
+
+
+    }
 
 
     // Remover
+
+
+
+    // Mostrar árvore
+
+
     
 }
