@@ -85,21 +85,38 @@ public class ArvoreBinariaPesquisa {
         }
     }
 
-    // Inserir
-    // lembrar de 
+    // Inserir. Na arvore binaria de pesquisa sempre é inserido no nó externo.
     public void insert(int k, Object o){
-        Object local_do_objeto = search(k, raiz);
+        // casting para transformar o retorno da função search em No
+        No posicao = (No) search(k, raiz); // A busca retorna a posição 
 
-
+        if(isExternal(posicao)){ // chave k ainda não existe, logo vira nó folha
+            posicao.setElemento(k);
+            posicao.setDireito(new No(null, posicao, null, null));
+            posicao.setEsquerdo(new No(null, posicao, null, null));
+            tamanho++;
+        }else{// chave duplicada. k foi encontrado, já existe.
+            replaceElement(posicao, o);
+        }
     }
 
 
     // Remover
+    // public Object remover(int k){
 
+    // }
 
+    // Função que imprime árvore 
+    public String imprimeArvore(){
+        return "";
 
-    // Mostrar árvore
-
-
-    
+    }
+    // Mostrar árvore usando travessia pré-ordem
+    public String mostrarArvore(){
+        if(isEmpty()){
+            return "Àrvore vazia";
+        }else{
+            return "";
+        }
+    }
 }
